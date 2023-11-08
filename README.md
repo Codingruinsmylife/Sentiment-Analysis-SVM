@@ -30,8 +30,8 @@ The project structure is as follows:
 * 'data/': Contains the dataset files.
 * 'code/': Contains the python code.
   * 'sentiment_analysis.ipynb': The main code for sentiment analysis.
-* 'results/': Stores the output and model files.
 * 'README.md': The project documentation (this file).
+* 'LICENSE.txt': MIT license for the project.
 
 ## Usage
 To run the project, follow these steps:
