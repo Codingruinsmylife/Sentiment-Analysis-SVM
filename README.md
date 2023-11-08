@@ -75,7 +75,7 @@ The project results include the best hyperparameters ('C') and the best SVM clas
 If you would like to contribute to this project, please follow the standard procedures for open-source contributions. Feel free to create a pull request or open an issue.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Codingruinsmylife/Sentiment-Analysis-SVM/blob/main/LICENSE.txt) file for details.
 
 ## Acknowledgement
 * This project is inspired by the need for sentiment analysis in natural language processing tasks.
