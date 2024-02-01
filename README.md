@@ -51,11 +51,70 @@ Run the provided code in a Python environment. Ensure that the dataset file is i
 
 ## Usage
 To unleash the power of the model:
-1. Execute the code to load and preprocess the dataset.
-2. Train the SVM classifier on the training set.
-3. Evaluate the model on the test set.
-4. Leverage the **'predict_sentiment'** function to predict sentiment on custom texts.
+1. **Execute the code to load and preprocess the dataset.**
+```bash
+# Load the JSON GZ dataset
+def load_json_gz_dataset(filename):
+    # ... (code for loading)
 
+# Load and preprocess the JSON GZ dataset
+dataset = load_json_gz_dataset("Magazine_Subscriptions.json.gz")
+
+# Convert the dataset to a Pandas DataFrame
+df = pd.DataFrame(dataset)
+
+# Display some sample data
+print("Sample Data:")
+print(df.head())
+```
+2. **Train the SVM classifier on the training set.**
+```bash
+# Split the data into training and testing sets
+X = df["reviewText"]
+y = df["sentiment"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Vectorize the text data using TF-IDF
+tfidf_vectorizer = TfidfVectorizer(max_features=5000)
+X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
+X_test_tfidf = tfidf_vectorizer.transform(X_test)
+
+# Train an SVM classifier
+svm_classifier = SVC(kernel='linear', random_state=42)
+svm_classifier.fit(X_train_tfidf, y_train)
+```
+3. **Evaluate the model on the test set.**
+```bash
+# Evaluate the model
+y_pred = svm_classifier.predict(X_test_tfidf)
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred)
+
+print("Model Evaluation:")
+print("Accuracy:", accuracy)
+print("Classification Report:", report)
+```
+4. **Leverage the **'predict_sentiment'** function to predict sentiment on custom texts.**
+```bash
+# Test model's correctness
+def predict_sentiment(text):
+    preprocessed_text = preprocess_text(text)
+    text_tfidf = tfidf_vectorizer.transform([preprocessed_text])
+    sentiment = svm_classifier.predict(text_tfidf)
+    return sentiment[0]
+
+sample_texts = [
+    "This product is amazing and I love it!",
+    "The service was terrible and I'm highly disappointed.",
+    "Neutral sentiment for this one."
+]
+
+print("\nTesting the Model on Sample Texts:")
+for text in sample_texts:
+    sentiment = predict_sentiment(text)
+    print(f"Text: '{text}'")
+    print(f"Predicted Sentiment: {sentiment}\n")
+```
 ## Contributing
 Contributions to this project are enthusiastically welcomed. Whether it's enhancing functionality or fixing bugs, feel free to submit issues or pull requests to propel the project forward.
 
