@@ -130,6 +130,6 @@ We appreciate your interest in contributing to the Time Series Analysis Model pr
    * Include a detailed description of your changes.
   
 ## License
-The Time Series Analysis Model project is open-source and licensed under the [MIT License](LISENCE.txt). By contributing to this project, you agree that your contributions will be licensed under this license. Thank you for considering contributing to our project. Your involvement helps make this project better for everyone. <br><br>
+The Time Series Analysis Model project is open-source and licensed under the [MIT License](LISENCE). By contributing to this project, you agree that your contributions will be licensed under this license. Thank you for considering contributing to our project. Your involvement helps make this project better for everyone. <br><br>
 **Haev Fun!** 🚀
 
